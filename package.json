@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "nearley": "^2.19.0"
+  },
+  "name": "mongqee",
+  "version": "1.0.0",
+  "description": "mongqee is a query language that translate into mongodb filter",
+  "main": "index.js",
+  "repository": "github.com/hanipcode/mongqee",
+  "author": "Muhammad Hanif",
+  "license": "MIT"
+}
