@@ -15,9 +15,7 @@ const filter = mongqee.parse(query);
 //   "$and": [
 //     {
 //       "Customer.age": {
-//         "$gt": [
-//           40
-//         ]
+//         "$gt": 40
 //       }
 //     },
 //     {
@@ -29,6 +27,43 @@ const filter = mongqee.parse(query);
 // }
 // then you can use it directly inside mongo
 const customers = await Customer.find(filter);
+
+// it also support grouping query
+const query2 = `(Customer.age > 40 AND customer.address LIKE "Jakarta") or (Customer.type = 'vvip' and customer.attempt > 5)`;
+const filter = mongqee.parse(query2);
+//  will parse into
+// {
+//   "$or": [
+//     {
+//       "$and": [
+//         {
+//           "Customer.age": {
+//             "$gt": 40
+//           }
+//         },
+//         {
+//           "customer.address": {
+//             "$eq": new Regexp('Jakarta', 'gim')
+//           }
+//         }
+//       ]
+//     },
+//     {
+//       "$and": [
+//         {
+//           "Customer.type": {
+//             "$eq": "vvip"
+//           }
+//         },
+//         {
+//           "customer.attempt": {
+//             "$gt": 5
+//           }
+//         }
+//       ]
+//     }
+//   ]
+// }
 ```
 
 ## Roadmap

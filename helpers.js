@@ -19,13 +19,13 @@ function handleRule(Rule) {
   if (operand.toString().toLowerCase() === "like") {
     return {
       [getFromIfAray(word)]: {
-        $eq: new RegExp(number, "gim")
+        $eq: new RegExp(getFromIfAray(number), "gim")
       }
     };
   }
   return {
     [getFromIfAray(word)]: {
-      [enumOperand[operand]]: number
+      [enumOperand[operand]]: getFromIfAray(number)
     }
   };
 }
