@@ -29,7 +29,8 @@ const filter = mongqee.parse(query);
 const customers = await Customer.find(filter);
 
 // it also support grouping query
-const query2 = `(Customer.age > 40 AND customer.address LIKE "Jakarta") or (Customer.type = 'vvip' and customer.attempt > 5)`;
+const query2 = `(Customer.age > 40 AND customer.address LIKE "Jakarta") or 
+                (Customer.type = 'vvip' and customer.attempt > 5)`;
 const filter = mongqee.parse(query2);
 //  will parse into
 // {
